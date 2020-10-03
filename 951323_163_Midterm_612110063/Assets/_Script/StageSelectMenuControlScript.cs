@@ -15,9 +15,9 @@ public class StageSelectMenuControlScript : MonoBehaviour
         backButton.onClick.AddListener
             (delegate { BackToMainMenuButtonClick(backButton); });
         Stage1Button.onClick.AddListener
-            (delegate { BackToMainMenuButtonClick(Stage1Button); });
+            (delegate { Stage1SelectedButtonClick(Stage1Button); });
         Stage2Button.onClick.AddListener
-            (delegate { BackToMainMenuButtonClick(Stage2Button); });
+            (delegate { Stage2SelectedButtonClick(Stage2Button); });
     }
 
     // Update is called once per frame
@@ -30,5 +30,15 @@ public class StageSelectMenuControlScript : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("SceneStageSelect");
         SceneManager.LoadScene("SceneMainMenu");
+    }
+    public void Stage1SelectedButtonClick(Button button)
+    {
+        SceneManager.UnloadSceneAsync("SceneStageSelect");
+        SceneManager.LoadScene("SceneGameplayStage1");
+    }
+    public void Stage2SelectedButtonClick(Button button)
+    {
+        SceneManager.UnloadSceneAsync("SceneStageSelect");
+        SceneManager.LoadScene("SceneGameplayStage2");
     }
 }
