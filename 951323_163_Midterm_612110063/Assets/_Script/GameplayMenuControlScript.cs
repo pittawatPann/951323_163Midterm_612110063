@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameplayMenuControlScript : MonoBehaviour
 {
     [SerializeField] Button _backButton;
+    [SerializeField] Button struckButton;
     // Start is called before the first frame update
     void Start()
     {
         _backButton.onClick.AddListener
             (delegate { BackToMainMenuButtonClick(_backButton); });
+        struckButton.onClick.AddListener
+            (delegate { StruckButtonClick(struckButton); });
     }
 
     // Update is called once per frame
@@ -24,5 +27,9 @@ public class GameplayMenuControlScript : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("SceneGameplayStage1");
         SceneManager.LoadScene("SceneStageSelect");
+    }
+    public void StruckButtonClick(Button button)
+    {
+        SceneManager.LoadScene("SceneGameplayStage1");
     }
 }
