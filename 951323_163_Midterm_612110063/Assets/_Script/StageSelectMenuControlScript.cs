@@ -33,8 +33,11 @@ public class StageSelectMenuControlScript : MonoBehaviour
     }
     public void Stage1SelectedButtonClick(Button button)
     {
+        if (SingletonSoundManager.Instance.BGMSource.isPlaying)
+            SingletonSoundManager.Instance.BGMSource.Stop();
         SceneManager.UnloadSceneAsync("SceneStageSelect");
         SceneManager.LoadScene("SceneGameplayStage1");
+        
     }
     public void Stage2SelectedButtonClick(Button button)
     {

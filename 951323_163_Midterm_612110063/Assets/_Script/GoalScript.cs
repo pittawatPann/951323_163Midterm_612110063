@@ -15,6 +15,8 @@ public class GoalScript : MonoBehaviour
     }
     void StageClear()
     {
+        if (SingletonSoundManager.Instance.BGMSource.isPlaying)
+            SingletonSoundManager.Instance.BGMSource.Stop();
         SceneManager.UnloadSceneAsync("SceneGameplayStage1");
         SceneManager.LoadScene("SceneGameplayStage2");
     }
